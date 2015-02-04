@@ -1,27 +1,33 @@
-// tutorial.js - tutorial3.js
+// tutorial1.js / tutorial3.js / tutorial9.js
 var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
         <h1>Comments</h1>
-        <CommentList />
+        <CommentList data={this.props.data}/>
         <CommentForm />
       </div>
     );
   }
 });
 React.render(
-  React.createElement(CommentBox, null),
+  <CommentBox data={data} />,
   document.getElementById('content')
 );
 
-// tutorial2.js - tutorial4.js
+// tutorial2.js / tutorial4.js / tutorial10.js
 var CommentList = React.createClass({
   render: function() {
+    var commentNodes = this.props.data.map(function(comment) {
+      return (
+        <Comment author={comment.author}>
+          {comment.text}
+        </Comment>
+      );
+    });
     return (
       <div className="commentList">
-        <Comment author="David Yurek">This is one comment</Comment>
-        <Comment author="David Yurek">This is *another* comment</Comment>
+        {commentNodes}
       </div>
     );
   }
@@ -41,13 +47,20 @@ var CommentForm = React.createClass({
 var converter = new Showdown.converter();
 var Comment = React.createClass({
   render: function() {
+    var rawMarkup = converter.makeHtml(this.props.children.toString());
     return (
       <div className="comment">
         <h2 className="commentAuthor">
           {this.props.author}
         </h2>
-        {converter.makeHtml(this.props.children.toString())}
+        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
       </div>
     );
   }
 });
+
+// tutorial8.js
+var data = [
+  {author: "Pete Hunt", text: "This is one comment"},
+  {author: "Jordan Walke", text: "this is *another* comment"}
+];
