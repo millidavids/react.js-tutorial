@@ -9,7 +9,7 @@
   <body>
     <div id="content"></div>
     <script type="text/jsx">
-      // tutorial.js
+      // tutorial.js - tutorial3.js
       var CommentBox = React.createClass({
         render: function() {
           return (
@@ -26,12 +26,13 @@
         document.getElementById('content')
       );
 
-      // tutorial2.js
+      // tutorial2.js - tutorial4.js
       var CommentList = React.createClass({
         render: function() {
           return (
             <div className="commentList">
-              Hello, world! I am a CommentList.
+              <Comment author="David Yurek">This is one comment</Comment>
+              <Comment author="David Yurek">This is *another* comment</Comment>
             </div>
           );
         }
@@ -42,6 +43,20 @@
           return (
             <div className="commentForm">
               Hello, world! I am a CommentForm.
+            </div>
+          );
+        }
+      });
+
+      // tutorial5.js
+      var Comment = React.createClass({
+        render: function() {
+          return (
+            <div className="comment">
+              <h2 className="commentAuthor">
+                {this.props.author}
+              </h2>
+              {this.props.children}
             </div>
           );
         }
