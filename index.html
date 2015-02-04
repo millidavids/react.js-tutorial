@@ -1,0 +1,27 @@
+<!-- index.html -->
+<html>
+  <head>
+    <title>React Tutorial</title>
+    <script src="http://fb.me/react-0.12.2.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/jsx">
+      // tutorial.js
+      var CommentBox = React.createClass({displayName: 'CommentBox',
+        render: function() {
+          return (
+            React.createElement('div', {className: "commentBox"},
+              "Hello, world! I am a CommentBox.")
+          );
+        }
+      });
+      React.render(
+        React.createElement(CommentBox, null),
+        document.getElementById('content')
+      );
+    </script>
+  </body>
+</html>
