@@ -1,5 +1,1 @@
-// tutorial13.json
-[
-  {"author": "Pete Hunt", "text": "This is one comment"},
-  {"author": "Jordan Walke", "text": "This is *another* comment"}
-]
+[{"author":"Pete Hunt","text":"This is one comment"},{"author":"Jordan Walke","text":"This is *another* comment"},{"author":"David Yurek","text":"An *another*"},{"author":"Bob Ross","text":"Something else"}]
