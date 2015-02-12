@@ -96,7 +96,7 @@ var CommentForm = React.createClass({
   },
   render: function() {
     return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
+      <form className="commentForm" onSubmit={console.log('hi')}>
         <input type="text" placeholder="Your name" ref="author" />
         <br/>
         <textarea cols="40" rows="5" placeholder="Say something..." ref="text" />
